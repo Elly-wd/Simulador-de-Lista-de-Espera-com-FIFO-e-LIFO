@@ -13,22 +13,21 @@ class InscritoController extends Controller
         $inscritos = Inscritos::all();
 
         if ($inscritos->id >10) {
-            return view('totalInscrtos', ['inscritos'=>$inscritos])->with('message', "Candidato não selecionado.");
+            return view('welcome', ['inscritos'=>$inscritos])->with('message', "Candidato não selecionado.");
         }else{
-            return view('totalInscrtos', ['inscritos'=>$inscritos])->with('message', "Candidato selecionado.");
+            return view('welcome', ['inscritos'=>$inscritos])->with('message', "Candidato selecionado.");
         }
     }
 
     public function store(Request $request)
     {
-        
         $validacao = Validator::make($request->all(), [
             'nome' => 'required',
             'email' => 'required',
         ]);
 
         if ($validacao->fails()) {
-            return with('message', "Algo aconteceu. Tente novamente");
+            return with("msg", "Algo aconteceu. Tente novamente");
         }else{
             $inscrito = new Inscritos();
 
@@ -38,7 +37,7 @@ class InscritoController extends Controller
 
             $inscrito->save();
 
-            return redirect('/')->with('message', 'Inscrição concluída com sucesso!');
+            return redirect('/')->with("msg", "Inscrição concluída com sucesso!");
         }
     }
 

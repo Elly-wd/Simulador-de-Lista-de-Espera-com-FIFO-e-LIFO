@@ -4,10 +4,8 @@
 
 @section('content')
 <div class="row">
-    @if (session()->has('message'))
-    <p class="msg">
-        {{ session('message') }}
-    </p>
+    @if (session()->has('msg'))
+        <p class="msg">{{ session('msg') }}</p>
     @endif
 </div>
 <h2>Realize sua inscrição</h2>
@@ -28,8 +26,8 @@
         </div>
     </div>
 
-    <button style="margin-left: -20%; width: 41%; margin-bottom: 3%;" type="button" class="btn btn-outline-dark">Enviar</button>
+    <button style="margin-left: -20%; width: 41%; margin-bottom: 3%; font-weight: bold;" type="button" class="btn btn-outline-dark" id="enviar" >Enviar</button>
 </form>
 
-<p>Ou <button type="button" class="btn btn-outline-light">Clique aqui</button> para ver a classificação </p>
+<p>Ou <button type="button" class="btn btn-outline-light" id="verIncristos" >Clique aqui</button> para ver a classificação </p>
 @endsection

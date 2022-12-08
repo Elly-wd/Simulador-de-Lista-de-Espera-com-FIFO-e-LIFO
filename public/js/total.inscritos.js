@@ -6,9 +6,8 @@ $(document).ready(function() {
             }
         });
     
-        $('#').on('click',function(e) {
+        $('#enviar').on('click',function() {
            
-            e.preventDefault();
     
             var nome = $('#nome').val();
             var email = $('#email').val();
@@ -27,10 +26,32 @@ $(document).ready(function() {
                 success: function() {
                     
                 },
-                error: function() {
-                    alert(error)
+                error: function(error) {
+                    console.log(error)
                 }
             });
         })
-        return false;
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    
+        $('#verIncristos').on('click',function() {
+  
+            $.ajax({
+                url: '/total-inscritos',
+                type: 'GET',
+                dataType:'json',
+    
+                success: function() {
+                    
+                },
+                error: function(error) {
+                    console.log(error)
+                }
+            });
+        })
 });
