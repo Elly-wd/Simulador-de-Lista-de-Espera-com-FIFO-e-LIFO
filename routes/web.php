@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', function () { return view('welcome'); });
 Route::get('/total-inscritos', [InscritoController::class, 'mostraInscritos']);
+Route::post('/nova-inscricao', [InscritoController::class, 'store']);

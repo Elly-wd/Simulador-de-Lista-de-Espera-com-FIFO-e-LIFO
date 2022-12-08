@@ -11,7 +11,12 @@ class InscritoController extends Controller
     public function mostraInscritos()
     {
         $inscritos = Inscritos::all();
-        return view('totalInscrtos', ['inscritos'=>$inscritos]);
+
+        if ($inscritos->id >10) {
+            return view('totalInscrtos', ['inscritos'=>$inscritos])->with('message', "Candidato não selecionado.");
+        }else{
+            return view('totalInscrtos', ['inscritos'=>$inscritos])->with('message', "Candidato selecionado.");
+        }
     }
 
     public function store(Request $request)

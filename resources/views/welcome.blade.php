@@ -1,45 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('title', 'Nova Inscrição')
 
-    <title>Formulário de Espera</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
-
-<body>
-    <form action="*" method="POST">
-
-        <div class="card" style="width: 25rem;">
-            <div class="card-body">
-                <div class="mb-3 row">
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Digite seu email">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Digite seu nome">
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Digite seu celular">
-                    </div>
-                </div>
-            </div>
+@section('content')
+<div class="row">
+    @if (session()->has('message'))
+    <p class="msg">
+        {{ session('message') }}
+    </p>
+    @endif
+</div>
+<h2>Realize sua inscrição</h2>
+<form method="POST">
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <input style="font-weight: lighter;" type="email" class="form-control" id="email" placeholder="Digite seu email">
         </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <input style="font-weight: lighter;" type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-sm-10">
+            <input style="font-weight: lighter;" type="text" class="form-control" id="telefone" placeholder="Digite seu celular">
+        </div>
+    </div>
 
-    </form>
+    <button style="margin-left: -20%; width: 41%; margin-bottom: 3%;" type="button" class="btn btn-outline-dark">Enviar</button>
+</form>
 
-
-</body>
-
-</html>
+<p>Ou <button type="button" class="btn btn-outline-light">Clique aqui</button> para ver a classificação </p>
+@endsection

@@ -1,0 +1,26 @@
+body{
+   background-color:  blueviolet;
+}
+
+p, h2{
+    margin-top: 3%;
+    color: #fff;
+    font-weight: lighter;
+}
+.container{
+    margin-top: 6%;
+    align-items: center;
+}
+
+.card{
+    border: 0.2, solid;
+    border-color: #ffff;
+    background-color: blueviolet;
+    height: 25rem;
+    width: 37rem;
+    align-items: center;
+    border-radius: 23px;
+}
+.card-body{
+    width: 80%;
+}
